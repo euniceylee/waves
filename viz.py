@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 import os
 
-src = "test.mp3"
+src = "audio.mp3"
 
 audio = AudioSegment.from_file(src)
 data = np.fromstring(audio._data, np.int16)
@@ -57,4 +57,4 @@ for item in max_array:
 
 im.show()
 
-im.save("test.bmp")
+im.save("audioViz.bmp")
