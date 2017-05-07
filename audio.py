@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 import os
 
-src = "./test.mp3"
+src = "test.mp3"
 
 audio = AudioSegment.from_file(src)
 data = np.fromstring(audio._data, np.int16)
@@ -56,3 +56,5 @@ for item in max_array:
     current_x = current_x + LINE_WIDTH
 
 im.show()
+
+im.save("test.bmp")
