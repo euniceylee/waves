@@ -12,6 +12,6 @@ while True:
     	print("Say something! (:")
     	#launch killer.py
         call(["arecord","/home/pi/Desktop/waves/audio.mp3", "-D", "sysdefault:CARD=1"])
-        call(["python","viz.py"])
+        call(["python","/home/pi/Desktop/waves/viz.py"])
         #launch printer.py
         time.sleep(0.2)
