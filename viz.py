@@ -2,10 +2,14 @@
 from pydub import AudioSegment
 from matplotlib import pyplot as plot
 from PIL import Image, ImageDraw, ImageFont
+from subprocess import call 
 import numpy as np
 import os
 
-src = "audio.mp3"
+print("Viz script has started")
+
+
+src = "audio3.mp3"
 
 audio = AudioSegment.from_file(src)
 data = np.fromstring(audio._data, np.int16)
@@ -42,9 +46,9 @@ line_ratio = highest_line/BAR_HEIGHT
 
 fnt = ImageFont.truetype('vcr.ttf', 50)
 
-im = Image.new('RGBA', (BARS * LINE_WIDTH, BAR_HEIGHT), (255, 255, 255, 1))
+im = Image.new('RGB', (BARS * LINE_WIDTH, BAR_HEIGHT), (255, 255, 255))
 draw = ImageDraw.Draw(im)
-draw.text((0,0), "HII THERE", font=fnt, fill=(0,0,0,255))
+draw.text((0,0), "WHAT'S YOUR MOTTO?", font=fnt, fill=(0,0,0,255))
 
 current_x = 1
 for item in max_array:
@@ -57,4 +61,6 @@ for item in max_array:
 
 im.show()
 
-im.save("audioViz.bmp")
+im.save("audioViz3.bmp")
+
+call(["lpr","-o","fit-to-page","audioViz3.bmp"])
