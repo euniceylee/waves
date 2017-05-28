@@ -4,9 +4,9 @@ from subprocess import call
 import subprocess
 from viz import *
 
-gpio.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
-class ButtonRecorder(pin): 
+class ButtonRecorder: 
 	def __init__(self, pin):
 		self.pin = pin
 		print(self.pin)
@@ -14,7 +14,7 @@ class ButtonRecorder(pin):
 
 	def start(self): 
 		while True:
-			input_state = GPIO.input(self.pint)
+			input_state = GPIO.input(self.pin)
 			if input_state == False:
 				print("Say something! (:")
 				subprocess.Popen(["python","/home/pi/Desktop/waves/killer.py"])
