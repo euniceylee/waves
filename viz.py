@@ -10,6 +10,8 @@ print("Viz script has started")
 
 def createViz(pin):
     src = "audio3.mp3"
+    
+    questions = {23: "What's your motto?", 24: "What's your name?"}
 
     audio = AudioSegment.from_file(src)
     data = np.fromstring(audio._data, np.int16)
@@ -48,7 +50,7 @@ def createViz(pin):
 
     im = Image.new('RGB', (BARS * LINE_WIDTH, BAR_HEIGHT), (255, 255, 255))
     draw = ImageDraw.Draw(im)
-    draw.text((0,0), "WHAT'S YOUR MOTTO?", font=fnt, fill=(0,0,0,255))
+    draw.text((0,0), questions[pin] , font=fnt, fill=(0,0,0,255))
 
     current_x = 1
     for item in max_array:
