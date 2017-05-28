@@ -11,7 +11,6 @@ class ButtonRecorder:
 		self.pin = pin
 		print(self.pin)
 		GPIO.setup(self.pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-		self.input_state = GPIO.input(self.pin)
 	
 	def getInputState(self):
 		input_state = GPIO.input(self.pin)
@@ -19,7 +18,7 @@ class ButtonRecorder:
 
 	def start(self): 
 		print("Say something! (:")
-		subprocess.Popen(["python","/home/pi/Desktop/waves/killer.py"])
+		subprocess.Popen(["python","/home/pi/Desktop/waves/killer.py",str(self.pin)])
 		print("Recording now")
 		call(["arecord","/home/pi/Desktop/waves/audio3.mp3", "-D", "sysdefault:CARD=1"])
 		print("Recording stopped")
@@ -34,7 +33,7 @@ rec24 = ButtonRecorder(24)
 s24 = rec24.getInputState()
 
 while True:
-	if (s23 == False):
+	if (rec23.getInputState() == False):
 		rec23.start()
-	elif (s24 == False):
+	elif (rec24.getInputState() == False):
 		rec24.start()
