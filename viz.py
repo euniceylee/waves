@@ -1,10 +1,22 @@
-
+from flask import Flask, request
+from time import gmtime, strftime
 from pydub import AudioSegment
 from matplotlib import pyplot as plot
 from PIL import Image, ImageDraw, ImageFont
 from subprocess import call 
 import numpy as np
 import os
+
+# set the project root directory as the static folder, you can set others.
+app = Flask(__name__, static_url_path='/images')
+
+current_image = {
+    "path": ""
+}
+
+@app.route('/getNewImage')
+def newImage():
+    return app.send_static_file(current_image["path"])
 
 print("Viz script has started")
 
@@ -63,6 +75,9 @@ def createViz(pin):
 
     im.show()
 
-    im.save("audioViz3.bmp")
+    filename = "images/audioViz_" + strftime("%Y_%m_%d%H-%M-%S", gmtime()) + ".bmp"
+    im.save(filename)
+    
+    current_image["path"] = filename
 
-    call(["lpr","-o","fit-to-page","audioViz3.bmp"])
+    call(["lpr","-o","fit-to-page",filename])
