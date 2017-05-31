@@ -12,7 +12,6 @@ def index():
 @app.route("/image")
 def image():
     newest = max(glob.iglob('images/*'), key=os.path.getctime)
-    print(newest)
     current_image = {"path": newest}
     return jsonify(current_image)
 

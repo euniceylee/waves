@@ -18,8 +18,6 @@
                 imagePaths.push(data.path)
                 $(".images").append('<img src="../' + data.path + '"/>')
                 console.log(imagePaths);
-            } else {
-                console.log("Image is already displayed");
             }
             }, "json" );
         }, 1000); 

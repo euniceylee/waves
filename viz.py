@@ -66,6 +66,4 @@ def createViz(pin):
     filename = "audioViz_" + strftime("%Y_%m_%d%H-%M-%S", gmtime()) + ".bmp"
     im.save("images/" + filename)
     
-    current_image["path"] = filename
-
     call(["lpr","-o","fit-to-page","images/" + filename])
