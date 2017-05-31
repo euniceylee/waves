@@ -16,7 +16,7 @@
         $.get("/image", function(data) {
             if (imagePaths.indexOf(data.path) == -1) {
                 imagePaths.push(data.path)
-                $(".images").append('<img src="../images/' + data.path + '"/>')
+                $(".images").append('<img src="../' + data.path + '"/>')
                 console.log(imagePaths);
             } else {
                 console.log("Image is already displayed");
