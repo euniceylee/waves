@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, jsonify, render_template
 from time import gmtime, strftime
 from pydub import AudioSegment
 from matplotlib import pyplot as plot
@@ -81,11 +81,11 @@ def createViz(pin):
 
 @app.route("/")
 def index():
-    return "Hello World"
+    return render_template('index.html')
 
 @app.route("/image")
 def image():
-    return send_from_directory(app.static_folder, current_image["path"])
+    return jsonify(current_image)
 
 if __name__ == "__main__":
     app.run()
