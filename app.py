@@ -3,7 +3,7 @@ import os
 import glob
 
 # set the project root directory as the static folder, you can set others.
-app = Flask(__name__, static_folder='images')
+app = Flask(__name__, static_folder='static')
 
 @app.route("/")
 def index():
@@ -11,7 +11,7 @@ def index():
 
 @app.route("/image")
 def image():
-    newest = max(glob.iglob('images/*'), key=os.path.getctime)
+    newest = max(glob.iglob('static/images/*'), key=os.path.getctime)
     current_image = {"path": newest}
     return jsonify(current_image)
 
