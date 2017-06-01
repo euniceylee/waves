@@ -32,8 +32,18 @@ s23 = rec23.getInputState()
 rec24 = ButtonRecorder(24)
 s24 = rec24.getInputState()
 
+rec25 = ButtonRecorder(25)
+s25 = rec25.getInputState()
+
+rec8 = ButtonRecorder(8)
+s8 = rec8.getInputState()
+
 while True:
 	if (rec23.getInputState() == False):
 		rec23.start()
 	elif (rec24.getInputState() == False):
 		rec24.start()
+	elif (rec25.getInputState() == False):
+		rec25.start()
+	elif (rec8.getInputState() == False):
+		rec8.start()

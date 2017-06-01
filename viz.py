@@ -11,7 +11,7 @@ print("Viz script has started")
 def createViz(pin):
     src = "audio3.mp3"
     
-    questions = {23: "What's your motto?", 24: "What's your name?"}
+    questions = {23: "What's your motto?", 24: "Give us your best laugh!", 25:"Make a wish!", 8:"What are you grateful for today?"}
 
     audio = AudioSegment.from_file(src)
     data = np.fromstring(audio._data, np.int16)
