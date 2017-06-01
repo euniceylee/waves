@@ -16,6 +16,9 @@
                 imagePaths.push(data.path)
                 $(".images").append('<img src="../' + data.path + '"/>')
                 console.log(imagePaths);
+                 $('html, body').animate({
+                    scrollTop: $(document).height()
+                }, 500);
             }
             }, "json" );
         }, 1000); 
