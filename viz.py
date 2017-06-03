@@ -9,7 +9,7 @@ import os
 print("Viz script has started")
 
 def createViz(pin):
-    src = "audio3.mp3"
+    src = "audio.mp3"
     
     questions = {23: "What's your motto?", 24: "Give us your best laugh!", 25:"Make a wish!", 8:"What are you grateful for today?"}
 

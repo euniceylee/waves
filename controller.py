@@ -9,7 +9,6 @@ GPIO.setmode(GPIO.BCM)
 class ButtonRecorder: 
 	def __init__(self, pin):
 		self.pin = pin
-		print(self.pin)
 		GPIO.setup(self.pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	
 	def getInputState(self):
@@ -20,7 +19,7 @@ class ButtonRecorder:
 		print("Say something! (:")
 		subprocess.Popen(["python","/home/pi/Desktop/waves/killer.py",str(self.pin)])
 		print("Recording now")
-		call(["arecord","/home/pi/Desktop/waves/audio3.mp3", "-D", "sysdefault:CARD=1"])
+		call(["arecord","/home/pi/Desktop/waves/audio.mp3", "-D", "sysdefault:CARD=1"])
 		print("Recording stopped")
 		createViz(self.pin)  
 		print("Viz Created")
