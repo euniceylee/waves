@@ -30,7 +30,11 @@ After that, all you need to do is hook up the push buttons to the Raspberry Pi. 
 
 ### Setting up the code
 
-To get the code working, you can first clone our repository. We require a few dependencies: time, matplotlib, FFMPEG, PIL, subprocess, and Flask. To get those working, just run `pip install dependency`.
+To get the code working, you can first clone our repository. We require a few dependencies: PIL, subprocess, and Flask. To get those working, just run `pip install dependency`.
+
+To install matplotlib, run `sudo apt-get install libpulse-dev` and `sudo apt-get install python-dev` before attempting to install `matplotlib` with `sudo apt-get install python-matplotlib`, as instructed by [this Stack Overflow response](https://stackoverflow.com/questions/43613666/pip-install-matplotlib-fails-on-raspbian-jessie-4-4).
+
+To install ffmpeg, follow [these instructions](https://www.jeffreythompson.org/blog/2014/11/13/installing-ffmpeg-for-raspberry-pi/). It takes a while to install (a few hours max). 
 
 After that, you just need to run 
 
