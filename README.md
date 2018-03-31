@@ -30,7 +30,7 @@ After that, all you need to do is hook up the push buttons to the Raspberry Pi. 
 
 ### Setting up the code
 
-To get the code working, you can first clone our repository. Next, you need to install Python dependencies
+To get the code working, you can first clone our repository. Next, you need to install Python dependencies :
 
 ```bash
 pip install -r requirements.txt
